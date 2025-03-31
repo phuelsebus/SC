@@ -238,7 +238,7 @@ html {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%; /* Reduziere auf 80% statt 100% */
+        width: 60%; /* Reduziere auf 80% statt 100% */
         height: 100vh;
         background-color: rgba(185, 217, 213, 0.98);
         flex-direction: column;
@@ -252,7 +252,15 @@ html {
     
     .site-nav.menu-open {
         right: 0;
+        background-color: #B9D9D5;
+        opacity: 1;
     }
+
+    .site-header {
+        background-color: #B9D9D5;
+        opacity: 1;
+    }
+
     
     .site-nav ul {
         flex-direction: column;
@@ -412,7 +420,6 @@ html {
     border-radius: 10px;
     max-width: 95%;
     margin: 0 auto;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
 
@@ -1136,91 +1143,48 @@ input, select, textarea {
     text-align: center;
 }
 
-/* Responsive Anpassungen */
-@media (max-width: 1200px) {
-    .home-flex-container {
-        gap: 2rem;
-    }
-    
-    .home-content p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 900px) {    
     .home-flex-container {
         flex-direction: column;
-        gap: 2rem;
-        padding: 1rem;
+        align-items: center;
+        padding: 0 auto;
     }
-    
+
     .home-text-container,
     .home-slideshow-container {
-        width: 100%;
-        min-width: auto;
-        padding: 1.5rem;
+        min-width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
     }
-    
-    .home-content {
-        padding: 1.5rem;
-    }
-    
-    .home-content p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-    
-    .main-heading {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .slideshow {
-        padding: 0.5rem;
-    }
-    
-    .slideshow-container {
-        height: 400px;
-    }
-    
-    .home-slideshow-container .slideshow {
-        min-height: 450px;
-    }
+
+.scroll-to-top::after {
+    content: "Top";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #333333;
+    background-color: #B9D9D5;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
 }
 
-/* Verhindert Scrollen des Hauptinhalts, wenn das mobile Menü geöffnet ist */
-body.menu-active {
-    overflow: hidden;
+.scroll-to-top:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -5px);
 }
 
-/* Overlay für den Hintergrund, wenn Menü offen ist */
-body.menu-active:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(51, 51, 51, 0.5);
-    z-index: 97;
-    pointer-events: none;
-}
 
-body.menu-active::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(51, 51, 51, 0.5);
-    z-index: 97; /* Niedriger als die Navigation, aber höher als der normale Inhalt */
-    pointer-events: none; /* Klicks durchlassen, damit man ins Menü klicken kann */
-}
 
 .container, .site-content {
     position: relative;
-    z-index: 1;
+    z-index: -1;
 }
 
 /* Moderner Nach-Oben-Button */
@@ -1270,36 +1234,4 @@ body.menu-active::after {
     border-radius: 15px;
     padding: 0.5rem;
     display: inline-block;
-}
-
-/* Allgemeine mobile Anpassungen */
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-    
-    p {
-        font-size: 1rem;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
-    
-    .container {
-        padding: 1rem;
-        margin: 0.5rem auto;
-    }
-    
-    .about-content {
-        padding: 1.5rem;
-    }
-    
-    .about-content p {
-        font-size: 1rem;
-    }
 }
