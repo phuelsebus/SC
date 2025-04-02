@@ -448,13 +448,6 @@ p {
     font-size: 1.5rem;
 }
 
-/* Gallerie */
-
-.gallery {
-    display: flex;
-    justify-content: center;
-}
-
 /* Kontakt */
 
 label {
@@ -513,7 +506,8 @@ form {
     width: fit-content;
 }
 
-/* Neue Galerie Styles */
+/*Galerie*/
+
 .gallery-container {
     padding: 2rem;
     max-width: 1200px;
@@ -559,7 +553,7 @@ form {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     padding: 1rem;
 }
@@ -617,18 +611,25 @@ form {
 /* Responsive Anpassungen für die Galerie */
 @media (max-width: 1200px) {
     .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
 }
 
 @media (max-width: 768px) {
     .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
     }
     
     .gallery-categories {
+        display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 0.5rem;
         padding: 0 1rem;
     }
@@ -638,7 +639,6 @@ form {
         font-size: 0.9rem;
     }
 }
-
 /* Lightbox Anpassungen */
 .lb-data .lb-caption {
     font-family: 'Montserrat', sans-serif;
@@ -1234,4 +1234,5 @@ input, select, textarea {
     border-radius: 15px;
     padding: 0.5rem;
     display: inline-block;
+}
 }
